@@ -1,9 +1,15 @@
 import type { PageServerLoad } from './$types';
-import { getPokemonById } from '$lib/stores/pokemon';
 
-export const load = (async ({ params }) => {
-    const pokemon = await getPokemonById(parseInt(params.id));
-    return {
-        pokemon
+export const load = (async ({ fetch, params }) => {
+
+    const fetchPokemon = async (id: string) => {
+        const res = await fetch(`/api/pokemon/${id}`)
+        const data = await res.json()
+        return data
     }
+
+    return {
+        pokemon: fetchPokemon(params.id)
+    }
+
 }) satisfies PageServerLoad;

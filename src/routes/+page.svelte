@@ -1,11 +1,16 @@
 <script lang="ts">
+	import type { PageData } from './$types';
 	import Pokemon from '$lib/components/Pokemon.svelte';
 	import RightSvg from '$lib/components/RightSvg.svelte';
 	import LeftSvg from '$lib/components/LeftSvg.svelte';
-	import { pokemonStore, fetchPokemon } from '$lib/stores/pokemon';
+	import { pokemonStore } from '$lib/stores/pokemon';
 	let searchTerm = '';
 	let page = 0;
 	let filteredPokemon: any[] = [];
+
+	export let data: PageData;
+
+	pokemonStore.set(data.pokemons);
 
 	const incrementPage = () => {
 		page = page < 12 ? page + 1 : page;
@@ -17,7 +22,7 @@
 
 	$: {
 		if (searchTerm) {
-			filteredPokemon = $pokemonStore.filter((pokemon) =>
+			filteredPokemon = $pokemonStore.filter((pokemon: PokemonType) =>
 				pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
 			);
 		} else {
@@ -25,7 +30,7 @@
 		}
 	}
 
-	$: fetchPokemon(page);
+	// $: fetchPokemon(page);
 	$: leftArrowColor = page === 0 ? 'lightgray' : 'black';
 	$: rightArrowColor = page === 12 ? 'lightgray' : 'black';
 </script>

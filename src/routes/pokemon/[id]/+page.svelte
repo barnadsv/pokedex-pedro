@@ -1,8 +1,12 @@
 <script lang="ts">
 	import type { PageData } from './$types';
+	import { pokemonDetails } from '$lib/stores/pokemon';
 
 	export let data: PageData;
 	const { pokemon } = data;
+
+	pokemonDetails[pokemon.id] = pokemon;
+
 	const type = pokemon.types[0].type.name;
 </script>
 

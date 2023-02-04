@@ -7,6 +7,11 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
+	type PokemonType = {
+		id: string,
+		name: string,
+		image: string
+	}
 }
 
-export {};
+export { };
