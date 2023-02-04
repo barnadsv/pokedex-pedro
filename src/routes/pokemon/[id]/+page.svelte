@@ -21,4 +21,5 @@
 		| Weight: <strong>{pokemon.weight}</strong>
 	</p>
 	<img class="card-image" src={pokemon.sprites['front_default']} alt={pokemon.name} />
+	<p>{JSON.stringify(pokemon.cards, null, 2)}</p>
 </div>
