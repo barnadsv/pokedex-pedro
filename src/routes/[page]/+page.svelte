@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { goto } from '$app/navigation'
-	import { browser } from '$app/environment'
+    import { goto } from '$app/navigation'
 	import Pokemon from '$lib/components/Pokemon.svelte';
 	import RightSvg from '$lib/components/RightSvg.svelte';
 	import LeftSvg from '$lib/components/LeftSvg.svelte';
@@ -12,17 +11,17 @@
 
 	export let data: PageData;
 
-	// pokemonStore.set(data.pokemons);
 	$: pokemonStore.set(data.pokemons);
-
+    console.log($pokemonStore)
+    
 	const incrementPage = () => {
 		page = page < 12 ? page + 1 : page;
-		if (browser) goto(`/${page}`);
+        goto(`/${page}`);
 	};
 
 	const decrementPage = () => {
 		page = page > 0 ? page - 1 : page;
-		if (browser) goto(`/${page}`);
+        goto(`/${page}`);
 	};
 
 	$: {

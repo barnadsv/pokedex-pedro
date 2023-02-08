@@ -1,4 +1,4 @@
-import type { RequestHandler } from './$types';
+import type { RequestHandler } from '../pokemon/$types';
 
 export const GET: RequestHandler = async ({ url }) => {
     const page = Number(url.searchParams.get('page') ?? '0')
