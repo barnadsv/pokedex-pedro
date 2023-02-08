@@ -84,8 +84,8 @@
 	{/each}
 </div>
 
-<style lang="postcss">
+<!-- <style lang="postcss">
 	.disabled {
 		cursor: not-allowed;
 	}
-</style>
+</style> -->
