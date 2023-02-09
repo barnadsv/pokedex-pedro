@@ -1,22 +1,24 @@
 <script lang="ts">
 	import type { PageData } from './$types'
 	import { pokemonDetails } from '$lib/stores/pokemon'
+	import { loading } from '$lib/stores/loading'
 	import CardList from '$lib/components/Cards.svelte'
 	import Card from '$lib/components/CardProxy.svelte'
 
 	export let data: PageData;
-	
+
 	$: ({ pokemon } = data)
 	$: console.log('pokemon', pokemon)
 	
 	let type: any
 	$: if (pokemon) {
-		if (!pokemon.message) {
-			console.log(pokemon)
-			pokemonDetails[pokemon.id] = pokemon;
-			type = pokemon.types[0].type.name;
+			if (!pokemon.message) {
+				console.log(pokemon)
+				pokemonDetails[pokemon.id] = pokemon;
+				type = pokemon.types[0].type.name;
+			}
+			$loading = false
 		}
-	}
 
 </script>
 

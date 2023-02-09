@@ -12,6 +12,17 @@ declare global {
 		name: string,
 		image: string
 	}
+	type LoaderType = {
+		size: string | number;
+		color: string;
+		unit: string;
+		duration: string;
+		pause: boolean;
+		ballTopLeft: string;
+		ballTopRight: string;
+		ballBottomLeft: string;
+		ballBottomRight: string;
+	}
 }
 
 export { };
