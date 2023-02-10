@@ -31,16 +31,27 @@
 		<p>{pokemon.message}</p>
 	{:else}
 		<h1 class="text-4xl text-center my-8 uppercase">{pokemon.name}</h1>
-		<p>
+		<!-- <img class="card-image" src={pokemon.sprites['front_default']} alt={pokemon.name} /> -->
+
+		{#if pokemon['real_image_url']}
+			<img class="h-28 w-28 " src={pokemon['real_image_url']} alt={pokemon.name} />
+		{:else}
+			<img class="h-28 w-28 " src={pokemon.sprites['front_default']} alt={pokemon.name} />
+		{/if}
+
+		<p class="my-4">
 			Type: <strong>{type}</strong> | Height: <strong>{pokemon.height}</strong>
 			| Weight: <strong>{pokemon.weight}</strong>
 		</p>
-		<img class="card-image" src={pokemon.sprites['front_default']} alt={pokemon.name} />
-		<div class="py-4 grid gap-4 md:grid-cols-4 grid-cols-1">
+
+		<!-- <div class="py-4 grid gap-4 md:grid-cols-4 grid-cols-1">
 			{#each pokemon.cards as card}
 				<img class="card-image" src={card.images.small} alt={card.name} />
 			{/each}
-		</div>
+		</div> -->
+		<!-- <h1 class="text-3xl text-center my-4">Evolução</h1> -->
+
+		<h1 class="text-3xl text-center my-4">Cards</h1>
 		<CardList>
 			{#each pokemon.cards as card, id}
 				<Card
@@ -55,7 +66,7 @@
 				/>
 			{/each}
 		</CardList>
-		<p>{JSON.stringify(pokemon.cards, null, 2)}</p>
+		<!-- <p>{JSON.stringify(pokemon, null, 2)}</p> -->
 	{/if}
 </div>
 

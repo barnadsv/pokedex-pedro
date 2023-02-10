@@ -5,7 +5,7 @@
     // data / pokemon props
     export let id = undefined;
     export let name: string | undefined = undefined;
-    export let number: number | undefined = undefined;
+    export let number: string | undefined = undefined;
     export let set: any = undefined;
     export let types = undefined;
     export let subtypes: any = undefined;
@@ -26,11 +26,11 @@
     /**
      * Shiny Vault Card (starts with sv)
      */
-    const isShiny = isDefined(number) && number.toLowerCase().startsWith( "sv" );
+    const isShiny = isDefined(number) && number?.toLowerCase().startsWith( "sv" );
     /**
      Trainer / Galar Gallery Card (not shiny)
      */
-    const isGallery = isDefined(number) && !!number.match(/^[tg]g/i);
+    const isGallery = isDefined(number) && !!number?.match(/^[tg]g/i);
     /**
      Alternate Art Card (not shiny / gallery)
      */
@@ -40,7 +40,7 @@
       rarity = rarity + " Reverse Holo";
     }
     
-    function isDefined (v) {
+    function isDefined (v: string | undefined) {
       return typeof v !== "undefined" && v !== null;
     }
   
@@ -72,7 +72,7 @@
       }
   
       const fRarity = rarity.toLowerCase();
-      const fNumber = number.toString().toLowerCase().replace( "swsh", "" ).padStart( 3, "0" );
+      const fNumber = number?.toString().toLowerCase().replace( "swsh", "" ).padStart( 3, "0" );
       const fSet = set.toString().toLowerCase().replace( "tg", "" ).replace( "sv", "" );
   
       if ( fRarity === "rare holo" ) {

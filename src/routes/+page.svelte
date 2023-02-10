@@ -12,6 +12,8 @@
 
 	$: pokemonStore.set(data.pokemons);
 
+	$: console.log($pokemonStore)
+
 	// const incrementPage = async () => {
 	// 	page = page < 12 ? page + 1 : page;
 	// 	const pokemons = await fetch(`api/pokemons/${page}`)
