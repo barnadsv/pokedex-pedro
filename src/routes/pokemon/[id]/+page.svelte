@@ -70,8 +70,8 @@
 	{/if}
 </div>
 
-<style lang="postcss">
+<!-- <style lang="postcss">
 	.card-image {
 		max-width: 200px;
 	}
-</style>
+</style> -->

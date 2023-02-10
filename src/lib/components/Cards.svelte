@@ -42,7 +42,7 @@
 	}
 	
 	
-	@media screen and (max-width: 900px) {
+	/* @media screen and (max-width: 900px) {
 		
 		:global( .card-grid > .card ) {
 			grid-column: 1;
@@ -104,9 +104,10 @@
 			top: 0px;
 			transform: translate3d(0, 0, 0.1px) rotateZ(5deg);
 		}
-	}
-		:global( .card-grid > .card.active ) {
-			transform: translate3d(0, 0, 0.1px)!important;
-		}
+	} */
+
+    :global( .card-grid > .card.active ) {
+        transform: translate3d(0, 0, 0.1px)!important;
+    }
 	
 </style>

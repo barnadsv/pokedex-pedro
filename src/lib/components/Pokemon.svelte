@@ -17,9 +17,3 @@
 	<!-- {/if} -->
 	<h2 class="uppercase text-xl">{pokemon.id}. {pokemon.name}</h2>
 </a>
-
-<style lang="postcss">
-	.bg {
-		background-color: rgb(222, 222, 220);
-	}
-</style>
