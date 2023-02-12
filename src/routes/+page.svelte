@@ -12,7 +12,7 @@
 
 	$: pokemonStore.set(data.pokemons);
 
-	$: console.log($pokemonStore)
+	// $: console.log($pokemonStore)
 
 	// const incrementPage = async () => {
 	// 	page = page < 12 ? page + 1 : page;

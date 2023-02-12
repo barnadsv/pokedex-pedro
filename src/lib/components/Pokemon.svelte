@@ -10,7 +10,9 @@
 	href={`/pokemon/${pokemon.id}`} on:click={() => $loading = true}
 	transition:fade
 >
-	{#if pokemon['real_image']}
+	{#if pokemon['real_image_prop']}
+		<img class="h-40 w-40 " src={pokemon['real_image_prop']} alt={pokemon.name} />
+	{:else if pokemon['real_image']}
 		<img class="h-40 w-40 " src={pokemon['real_image']} alt={pokemon.name} />
 	{:else}
 		<img class="h-40 w-40 " src={pokemon.image} alt={pokemon.name} />
